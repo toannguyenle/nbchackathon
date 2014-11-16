@@ -1,14 +1,67 @@
-<% if @select_movie %>
-  <% @select_movie.each do |m| %>
-    <strong><%= m['caption'] %></strong><br>
-    Runtime: <%= m['runtime'] %> secs <br>
-    <%= video_tag(m['videohref'], controls: true, autobuffer: true) %>
-  <% end %>
-<% end %>
-<video></video>
+<div class="container fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 col-sm-offset-3 col-md-offset-2">
+      <% if @select_movie %>
+          <strong><%= @select_movie.first['caption'] %></strong><br>
+          Runtime: <%= @select_movie.first['runtime'] %> secs <br>
+          <div class="embed-responsive embed-responsive-16by9">
+            <%= content_tag(:iframe,nil, src: @select_movie.first['videohref'], class: "embed-responsive-item" ) %>
+          </div>
+      <% end %>
 
-<h1>New challenge</h1>
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+          </a>
+        </div>
 
-<%= render 'form' %>
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+          </a>
+        </div>
 
-<%= link_to 'Back', challenges_path %>
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail text-center">
+            <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+          </a>
+        </div>
+
+      <h1>New challenge</h1>
+
+      <%= render 'form' %>
+
+      <%= link_to 'Back', challenges_path %>
+    </div>
+  </div>
+</div>

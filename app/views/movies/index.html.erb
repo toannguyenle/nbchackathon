@@ -1,20 +1,25 @@
-<table>
-  <tr>
-    <th>Fandando ID</th>
-    <th>Name</th>
-    <th>Poster</th>
-    <th>ADD</th>
-  </tr>
-  <% @result.each do |r| %>
-    <tr>
-      <td><%= r['movie']['id'] %></td>
-      <td><%= r['movie']['title'] %></td>
-      <td><%= image_tag r['movie']['posterhref'] %></td>
-      <td>
-        <%#= link_to 'Add', show_movie_path(:select_movie => r), :data => {:controller => "movies_controller", :action => "show_movie"} %>
-        <%= link_to 'Add', new_challenge_path(:select_movie => r), :data => {:controller => 'challenges', :action => 'new'}  %>
-      </td>
-    </tr>
-  <% end %>
-</table>
- 
+<div class="container fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 col-sm-offset-3 col-md-offset-2">
+      <table class="table table-hover">
+        <tr>
+          <th>Fandando ID</th>
+          <th>Name</th>
+          <th>Poster</th>
+          <th>ADD</th>
+        </tr>
+        <% @result.each do |r| %>
+          <tr>
+            <td><%= r['movie']['id'] %></td>
+            <td><%= r['movie']['title'] %></td>
+            <td><%= image_tag r['movie']['posterhref'] %></td>
+            <td>
+              <%#= link_to 'Add', show_movie_path(:select_movie => r), :data => {:controller => "movies_controller", :action => "show_movie"} %>
+              <%= link_to 'Add', new_challenge_path(:select_movie => r), :data => {:controller => 'challenges', :action => 'new'}, :class => "btn btn-primary btn-lg btn-block"  %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
