@@ -1,0 +1,58 @@
+<%= form_for(@challenge) do |f| %>
+  <% if @challenge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+
+      <ul>
+      <% @challenge.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+  </div>  
+  <div class="field">
+    <%= f.label :movie_id %><br>
+    <%= select_tag :movie_id, options_from_collection_for_select(Movie.all, :id, :name) %>
+  </div>  
+
+  <div class="field">
+    <%= f.label :ticket %><br>
+    <%= f.number_field :ticket %>
+  </div>
+  <div class="field">
+    <%= f.label :trailer %><br>
+    <%= f.number_field :trailer %>
+  </div>
+  <div class="field">
+    <%= f.label :checkin %><br>
+    <%= f.number_field :checkin %>
+  </div>
+  <div class="field">
+    <%= f.label :quiz %><br>
+    <%= f.number_field :quiz %>
+  </div>
+  <div class="field">
+    <%= f.label :fblike %><br>
+    <%= f.number_field :fblike %>
+  </div>
+  <div class="field">
+    <%= f.label :fbshare %><br>
+    <%= f.number_field :fbshare %>
+  </div>
+  <div class="field">
+    <%= f.label :tfollow %><br>
+    <%= f.number_field :tfollow %>
+  </div>
+  <div class="field">
+    <%= f.label :tweet %><br>
+    <%= f.number_field :tweet %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

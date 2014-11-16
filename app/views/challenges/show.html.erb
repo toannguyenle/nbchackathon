@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @challenge.ticket %>
+</p>
+
+<p>
+  <strong>Trailer:</strong>
+  <%= @challenge.trailer %>
+</p>
+
+<p>
+  <strong>Checkin:</strong>
+  <%= @challenge.checkin %>
+</p>
+
+<p>
+  <strong>Quiz:</strong>
+  <%= @challenge.quiz %>
+</p>
+
+<p>
+  <strong>Fblike:</strong>
+  <%= @challenge.fblike %>
+</p>
+
+<p>
+  <strong>Fbshare:</strong>
+  <%= @challenge.fbshare %>
+</p>
+
+<p>
+  <strong>Tfollow:</strong>
+  <%= @challenge.tfollow %>
+</p>
+
+<p>
+  <strong>Tweet:</strong>
+  <%= @challenge.tweet %>
+</p>
+
+<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<%= link_to 'Back', challenges_path %>

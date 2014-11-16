@@ -1,0 +1,14 @@
+<% if @select_movie %>
+  <% @select_movie.each do |m| %>
+    <strong><%= m['caption'] %></strong><br>
+    Runtime: <%= m['runtime'] %> secs <br>
+    <%= video_tag(m['videohref'], controls: true, autobuffer: true) %>
+  <% end %>
+<% end %>
+<video></video>
+
+<h1>New challenge</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', challenges_path %>

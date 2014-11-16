@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong>Password confirmation:</strong>
+  <%= @user.password_confirmation %>
+</p>
+
+<p>
+  <strong>Favorite movies:</strong>
+  <%= @user.favorite_movies %>
+</p>
+
+
+<% if @user.movies %>
+  <% @user.movies.each do |m| %>
+    <strong><%= m.name %></strong>
+      <% if m.challenges %>
+        <% m.challenges.each do |c| %>
+          <p>Facebook like?</p>
+          <%= c.fblike %>
+        <% end %>
+      <% end %>
+  <% end %>
+<% end %>
+
+<% if @user.challenges %>
+  <% @user.challenges.each do |c| %>
+    <%= c.fblike %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
