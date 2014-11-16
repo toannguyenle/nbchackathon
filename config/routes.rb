@@ -1,4 +1,5 @@
 Fandangoapp2::Application.routes.draw do
+  root 'movies#index'
   resources :challenges
 
   resources :users
